@@ -4,7 +4,8 @@ import User from "../Models/user.schema.js";
 dotenv.config()
 
 const authMiddleware=async(req, res, next)=>{
-const token = req.header('Authorization')
+// const token = req.header('Authorization')
+const token=req.headers.authorization?.split(' ')[1]
 if (!token){
     return res.status(401).json({message:"token is missing"})
 }   
@@ -25,7 +26,7 @@ try {
 
 } catch (error) {
     console.log(error);
-    res.status(500).json({message:"Invalid toked ,internal server error "})
+    res.status(500).json({message:"Invalid toked ,internal server error "})    
 }
 
 

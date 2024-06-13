@@ -42,6 +42,7 @@ export const loginUser = async(req, res)=>{
     } catch (error) {
         console.log(error);
         res.status(500).json({error:'Login Failed, Internal server error'})
+        
     }
 }
 
@@ -50,7 +51,7 @@ export const getAllUser = async (req,res)=>{
     try{
         const userId = req.user._id
         const user= await User.findById(userId)
-        res.status(200).json({message:"Autherised user", data:user} )
+        res.status(200).json({message:"Autherised user", data:[user]} )
     } catch(error) {
         console.log(error);
         res.status(500).json({err:"internal error"})
