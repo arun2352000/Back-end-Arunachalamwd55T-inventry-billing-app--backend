@@ -14,3 +14,20 @@ export const createCustomer = async (req, res) =>{
         console.log(error);
     }
 }
+
+export const getAllCustomer = async (req, res) =>{
+    
+    try {
+        
+        const userId = req.user._id
+
+        const customer= await Customer.find({user_id: userId})
+        console.log(customer);
+        res.status(200).json({message:"Autherised user", data:customer })
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
