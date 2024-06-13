@@ -6,6 +6,7 @@ import connectDB from './Database/dbConfig.js'
 
 import userRouter from './Routers/user.router.js'
 import productRouter from './Routers/product.route.js'
+import customerRouter from './Routers/customer.rout.js'
 
 dotenv.config()
 const port= process.env.PORT
@@ -17,6 +18,7 @@ connectDB()
 
 app.use('/api/user', userRouter)
 app.use('/api/product', productRouter)
+app.use('/api/customer', customerRouter)
 
 app.listen(port, ()=>{
     console.log("App is listening in the port-",port)
