@@ -55,3 +55,10 @@ export const editCustomer  =async (req,res)=>{
     }
 
 }
+
+export const deleteCustomer =async (req,res)=>{
+    const id=req.params.id
+    console.log(id);
+    const data = await Customer.deleteOne({_id:id})
+    res.status(200).json({message:"object deleted", data:data})
+}
