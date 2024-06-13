@@ -42,5 +42,26 @@ export const getAllProduct = async (req,res)=>{
 
 
 export const editProduct =async (req,res)=>{
+    try {
+        const{productname,price, quantity, brand, product_id} =  req.body;
+        
+        const product= await Product.findOne({product_id})
+        if (!product) {
+            return res.status(401).json({message:"product not found"})
+        }
+        // const data =await Product.updateMany({productname: productname },{price:price}, {quantity:quantity }, {brand:brand} )
+        // const data =await Product.updateOne(productname,price, quantity, brand )
+        product.productname=productname
+        product.price=price
+        product.quantity=quantity
+        product.brand=brand
+        await product.save()
+
+        res.status(200).json({message:"data updated", product:product})
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const deleteProduct =async (req,res)=>{
     
 }
