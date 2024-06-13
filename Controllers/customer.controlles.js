@@ -31,3 +31,27 @@ export const getAllCustomer = async (req, res) =>{
 
 }
 
+export const editCustomer  =async (req,res)=>{
+    try {
+        
+        const {companeyname, gstno, adress, customername, numbr, emailadress } = req.body
+
+        const customer= await Customer.findOne({emailadress})
+        if (!customer) {
+            return res.status(401).json({message:"customer not found"})
+        }
+
+        customer.companeyname=companeyname
+        customer.gstno=gstno
+        customer.adress=adress
+        customer.customername=customername
+        customer.numbr=numbr
+        await customer.save()
+
+        res.status(200).json({message:"data updated", customer:customer})
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
