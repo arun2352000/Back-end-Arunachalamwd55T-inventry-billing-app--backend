@@ -63,5 +63,8 @@ export const editProduct =async (req,res)=>{
     }
 }
 export const deleteProduct =async (req,res)=>{
-    
+    const id=req.params.id
+    console.log(id);
+    const data = await Product.deleteOne({_id:id})
+    res.status(200).json({message:"data updated", data:data})
 }

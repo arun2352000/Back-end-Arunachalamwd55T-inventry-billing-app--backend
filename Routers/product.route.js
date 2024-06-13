@@ -8,5 +8,5 @@ const router =express.Router()
 router.post('/createproduct', authMiddleware, createProduct)
 router.get('/getallproduct', authMiddleware, getAllProduct)
 router.put('/updateproduct', editProduct)
-router.delete('/deleteproduct/.id',deleteProduct)
+router.delete('/deleteproduct/:id',deleteProduct)
 export default router
