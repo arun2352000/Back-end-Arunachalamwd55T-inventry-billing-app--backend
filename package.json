@@ -1,24 +1,29 @@
 {
-  "name": "back-end-arunachalamwd55t-inventry-billing-app--backend",
+  "name": "back-end",
   "version": "1.0.0",
-  "description": "this is a basic inventry billing appp\r for backend",
+  "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon Back-End/index.js",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "build": "npm install && (cd ../Front-End/my-App && npm install && npm run build)"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
+    "crypto": "^1.0.1",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.0",
-    "nodemon": "^3.1.2"
+    "mongoose": "^8.0.2",
+    "nodemailer": "^6.9.8",
+    "nodemon": "^3.0.1",
+    "path": "^0.12.7"
   }
 }
