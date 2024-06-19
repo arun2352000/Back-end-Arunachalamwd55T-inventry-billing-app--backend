@@ -35,7 +35,7 @@ const signupRouter = async (req, res, next) => {
       verificationToken,
     });
     await addnewadmin.save();
-    const verificationLink = `https://inventrybillingappwd55fe.netlify.app//verify/${addnewadmin._id}/${verificationToken}`;
+    const verificationLink = `https://inventrybillingappwd55fe.netlify.app/verify/${addnewadmin._id}/${verificationToken}`;
 
     const mailOptions = {
       from: "poorvaja10@gmail.com",
@@ -87,7 +87,7 @@ const loginRouter = async (req, res, next) => {
     const token = jwt.sign({ id: findadminexists._id }, process.env.JWT_KEY);
     const { password: pass, ...rest } = findadminexists._doc;
     if (findadminexists.isVerified == false) {
-      const verificationLink = `https://inventrybillingappwd55fe.netlify.app//verify/${findadminexists._id}/${findadminexists.verificationToken}`;
+      const verificationLink = `https://inventrybillingappwd55fe.netlify.app/verify/${findadminexists._id}/${findadminexists.verificationToken}`;
 
       const mailOptions = {
         from: "poorvaja10@gmail.com",
@@ -161,7 +161,7 @@ const reset_password = async (req, res, next) => {
     user.resetToken = resetToken;
     await user.save();
 
-    const resetLink = `https://inventrybillingappwd55fe.netlify.app//reset-password/${user._id}/${resetToken}`;
+    const resetLink = `https://inventrybillingappwd55fe.netlify.app/reset-password/${user._id}/${resetToken}`;
 
     const mailOptions = {
       from: "poorvaja10@gmail.com",

@@ -73,7 +73,7 @@ const createInvoice = async (req, res, next) => {
       }
 
       if (quantityCheck.productquantity < 5) {
-        const addProductQuantityLink = `https://inventrybillingappwd55fe.netlify.app//editproduct/${quantityCheck._id}`;
+        const addProductQuantityLink = `https://inventrybillingappwd55fe.netlify.app/editproduct/${quantityCheck._id}`;
         const mailOptions = {
           from: "vijay.r20799@gmail.com",
           to: adminemail.email,
